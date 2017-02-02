@@ -3,12 +3,12 @@ function getId(state){
 		return Math.max(todo.id, maxId)
 	}, -1) + 1
 }
-export default function reducer(state, action){
+let reducer = function(state, action){
 	switch(action.type){
 		case 'ADD_TODO':
-			Object.assign({}, state,{
+			return Object.assign({}, state,{
 				todos: [{
-					test: action.text,
+					text: action.text,
 					completed: false,
 					id: getId(state)
 				}, ...state.todos]
@@ -17,3 +17,5 @@ export default function reducer(state, action){
 			return state;
 	}
 }
+
+export default reducer

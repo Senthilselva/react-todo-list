@@ -5,7 +5,14 @@ class TodoList extends Component {
   render() {
     return (
       <div>
-        To do list
+        <ul>
+        {
+        	this.props.todos.map((todo) =>{
+        		return <li key = {todo.id}>{todo.text}</li>
+        	})
+        }
+
+        </ul>
       </div>
     )
   }
