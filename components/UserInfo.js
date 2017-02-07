@@ -8,10 +8,17 @@ class UserInfo extends Component {
   }
 
   handleNewId(event){
-    event.preventDefault()
+    this.props.actions.createNewUserId()
+    //dispatch an action
+  }
 
-    console.log("handleNewId")
-    this.props.createNewUserId()
+  handleNewIdIfOdd(event){
+    this.props.actions.createNewUserIdOdd()
+    //dispatch an action
+  }
+
+  handleNewUserIdAsync(event){
+    this.props.actions.createNewUserIdAsync()
     //dispatch an action
   }
 
@@ -21,6 +28,8 @@ class UserInfo extends Component {
         <div> username : {this.props.user.username} </div>
         <div> id : {this.props.user.id}</div>
         <button onClick={this.handleNewId.bind(this)}> Update with Randoom Id </button>
+        <button onClick={this.handleNewIdIfOdd.bind(this)}> Update only if Odd </button>
+        <button onClick={this.handleNewUserIdAsync.bind(this)}> Update Async </button>
       </div>
     )
   }

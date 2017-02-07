@@ -25,6 +25,27 @@ let actions = {
 			type: "CREATE_ID",
 			id: Math.round(Math.random()*100)
 		}
+	},
+
+	createNewUserIdOdd: function(){
+		//gets the dispatch from store
+		return(dispatch, getState) => {
+			const { user } = getState()
+			if(user.id % 2 === 0){
+				return
+			}
+			dispatch(actions.createNewUserId())
+		}
+	},
+
+	//could be used in all server call and checks more important
+	createNewUserIdAsync: function(){
+		//gets the dispatch from store
+		return(dispatch) => {
+			setTimeout(()=> {
+			dispatch(actions.createNewUserId())
+		},2500)
+		}
 	}
 }
 
