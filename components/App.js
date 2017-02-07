@@ -17,7 +17,10 @@ class App extends Component {
 
 }
 
+//this function should return only the state you would like to pass
 function mapStateToProps(state) {
 	return state
 }
+
+//connect takes in a function and uses it to with the App and provider to pass it along
 export default connect(mapStateToProps)(App)

@@ -6,8 +6,9 @@ import logger from 'redux-logger'
 let finalCreateStore = compose(
 		applyMiddleware(logger())
 	)(createStore)
+//if inital state is not supplied then it is equal to what is given after the equlto sign
 
 export default function configureStore(initialState = { todos: [] }) {
-	return createStore(reducer, initialState)
+	return finalCreateStore(reducer, initialState)
 }
 
